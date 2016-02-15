@@ -11,3 +11,5 @@ body {
 footer {
     margin: 50px 0;
 }
+
+#event-map { height: 250px; }

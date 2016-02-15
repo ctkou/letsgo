@@ -24,6 +24,11 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+		<script src="https://fb.me/react-0.14.7.min.js"></script>
+		<script src="https://fb.me/react-dom-0.14.7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
 </head>
 
 <body>
@@ -76,7 +81,8 @@
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-responsive" src="http://placehold.it/1800x1000" alt="">
+                <div id="event-gif"></div>
+								<script type="text/babel" src="js/gifhandler.js"></script>
 
                 <hr>
 
@@ -98,9 +104,8 @@
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
 
-                <!-- Blog Search Well -->
+                <!-- Search Well -->
                 <div class="well">
-                    <h4>Blog Search</h4>
                     <div class="input-group">
                         <input type="text" class="form-control">
                         <span class="input-group-btn">
@@ -112,28 +117,13 @@
                     <!-- /.input-group -->
                 </div>
 
-
-
-                <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
-
                 <!-- Map -->
-                <div id="map">
-<p>tdsag</p>
+                <div id="event-map">
                 </div>
-								<script type="text/javascript">
-									function initMap() {
-										// Create a map object and specify the DOM element for display.
-										var map = new google.maps.Map(document.getElementById('map'), {
-											center: {lat: -34.397, lng: 150.644},
-											scrollwheel: false,
-											zoom: 8
-										});
-									}
-								</script>
+
+								<div>
+									<input type="image" src="resource/test/LetsGO.png" />
+								</div>
 
             </div>
 
@@ -155,19 +145,26 @@
     </div>
     <!-- /.container -->
 
-		<!-- external libraries -->
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0m5ZZiPzMXorH4gkSm7gE5JNJWajG10M&callback=initMap">
-    </script>
-
-
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-		<script src="js/google.map.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+			var map;
+			function initMap() {
+				map = new google.maps.Map(document.getElementById('event-map'), {
+					center: {lat: -34.397, lng: 150.644},
+					zoom: 8
+				});
+			}
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0m5ZZiPzMXorH4gkSm7gE5JNJWajG10M&callback=initMap">
+    </script>
+
+		
 </body>
 
 </html>
