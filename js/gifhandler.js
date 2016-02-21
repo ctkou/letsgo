@@ -104,6 +104,12 @@ var EventGif = React.createClass({
   	var lat = this.props.data[this.state.current_event_index].location.latitude;
   	var lng = this.props.data[this.state.current_event_index].location.longitude;
   	updateMap(lat, lng);
+
+    var unix_timestamp = this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].timestamp;
+    var time = new Date(unix_timestamp*1000);
+    var formattedTime = time.toLocaleString();
+  
+
     return (
       <div className="event-gif">
         <h1>{this.props.data[this.state.current_event_index].event_name}</h1>
@@ -120,6 +126,8 @@ var EventGif = React.createClass({
         <p style={this.props}>
           {this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].description}
         </p>
+
+         <p style={this.props}> Posted on {formattedTime}</p>
       </div>
     );
   }
