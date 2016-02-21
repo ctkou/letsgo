@@ -1,3 +1,4 @@
+// Testing data
 var data = [
   {
     event_name: "event 1",
@@ -22,8 +23,8 @@ var data = [
       }
     ],
     location: {
-      latitude: 1,
-      longitude: 2,
+      latitude: 49.2827,
+      longitude: 123.1207,
       name: "Vancouver"
     }
   },
@@ -50,30 +51,38 @@ var data = [
       }
     ],
     location: {
-      latitude: 3,
-      longitude: 4,
-      name: "Bangkok"
+      latitude: 52.5167,
+      longitude: 13.3833,
+      name: "Berlin"
     }
   }
 ];
 
 var EventGif = React.createClass({
-    loadGifsFromServer: function() {
-    	if (this.state.first_call) {
-    		var next_gif_index = 0;
-    		this.setState (
-	    		{
-					first_call: false
-	    		}
-    		);
-    	}
-    	else {
-    		var next_gif_index = this.state.current_gif_index + 1;
-    	};
+  getDefaultProps: function() {
+    return {
+        marginBottom: 20,
+        fontSize: 24,
+        fontWeight: 300,
+        lineHeight: 1.4
+    }
+  },
+  loadGifsFromServer: function() {
+      if (this.state.first_call) {
+        var next_gif_index = 0;
+        this.setState (
+          {
+          first_call: false
+          }
+        );
+      }
+      else {
+        var next_gif_index = this.state.current_gif_index + 1;
+      };
         var next_event_index = this.state.current_event_index;
         if (next_gif_index == this.props.data[this.state.current_event_index].event_gif.length) {
-        	next_event_index = (next_event_index + 1) % this.props.data.length;
-        	next_gif_index = 0;
+          next_event_index = (next_event_index + 1) % this.props.data.length;
+          next_gif_index = 0;
         };
         this.setState(
           {
@@ -82,6 +91,7 @@ var EventGif = React.createClass({
           }
         );
     },
+    
   getInitialState: function() {
     return {first_call: true, current_event_index: 0, current_gif_index: 0};
   },
@@ -94,10 +104,17 @@ var EventGif = React.createClass({
       <div className="event-gif">
         <h1>{this.props.data[this.state.current_event_index].event_name}</h1>
         <hr/>
-      	<img src={this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].url} alt="" height="500" width="700"></img>
-      	<hr/>
-        <p class="lead">
+        
+        <img src={this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].url} alt="" height="500" width="700"></img>
+        <hr/>
+       
+        <p style={this.props}>
             by <a href="#">{this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].user_name}</a>
+        </p>
+        <hr/>
+        
+        <p style={this.props}>
+          {this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].description}
         </p>
       </div>
     );
