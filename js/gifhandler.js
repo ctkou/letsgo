@@ -6,25 +6,25 @@ var data = [
       {
         user_name: "map",
         description: "dancing douchebag",
-        timestamp: 0,
+        timestamp: 1440547200,
         url: "http://media.giphy.com/media/109Ku3hdapZJle/giphy.gif"
       },
       {
         user_name: "adam",
         description: "HOT Melanie Iglesias!!!",
-        timestamp: 0,
+        timestamp: 1456095653,
         url: "http://cdn.rsvlts.com/wp-content/uploads/2013/11/Melanie-Iglesias-GIF-06.gif"
       },
       {
         user_name: "alex",
         description: "pump girl",
-        timestamp: 0,
+        timestamp: 1451606400,
         url: "http://gifdanceparty.giphy.com/dancers/pumpgirl.gif"
       }
     ],
     location: {
       latitude: 49.2827,
-      longitude: 123.1207,
+      longitude: -123.1207,
       name: "Vancouver"
     }
   },
@@ -34,19 +34,19 @@ var data = [
       {
         user_name: "map 2",
         description: "another douchebag",
-        timestamp: 0,
+        timestamp: 1454284800,
         url: "https://media.giphy.com/media/10UbmtWrnhUtCE/giphy.gif"
       },
       {
         user_name: "adam 1",
         description: "singing and dancing",
-        timestamp: 0,
+        timestamp: 1359676800,
         url: "https://45.media.tumblr.com/tumblr_m24v22HOxr1qhyf36o1_500.gif"
       },
       {
         user_name: "alex 1",
         description: "berlin",
-        timestamp: 0,
+        timestamp: 1372636800,
         url: "https://media.giphy.com/media/12NxsoRNhOWxTW/giphy.gif"
       }
     ],
@@ -57,6 +57,7 @@ var data = [
     }
   }
 ];
+
 
 var EventGif = React.createClass({
   getDefaultProps: function() {
@@ -100,6 +101,9 @@ var EventGif = React.createClass({
     setInterval(this.loadGifsFromServer, this.props.pollInterval);
   },
   render: function() {
+  	var lat = this.props.data[this.state.current_event_index].location.latitude;
+  	var lng = this.props.data[this.state.current_event_index].location.longitude;
+  	updateMap(lat, lng);
     return (
       <div className="event-gif">
         <h1>{this.props.data[this.state.current_event_index].event_name}</h1>

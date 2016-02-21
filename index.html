@@ -29,6 +29,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- google map -->
+    <script src="js/google.map.js"></script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0m5ZZiPzMXorH4gkSm7gE5JNJWajG10M&callback=initMap">
+    </script>
 </head>
 
 <body>
@@ -77,17 +90,8 @@
 
                 <!-- Preview Image -->
                 <div id="event-gif"></div>
-								<script type="text/babel" src="js/gifhandler.js"></script>
-
-                <!-- Author -->
-                
-
-
-                <!-- Date/Time -->
+				<script type="text/babel" src="js/gifhandler.js"></script>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
-
-                <!-- Description -->
-               
 
             </div>
 
@@ -107,13 +111,17 @@
                     <!-- /.input-group -->
                 </div>
 
-                <!-- Map -->
+                <!-- google map for event -->
                 <div id="event-map">
                 </div>
+                <hr/>
+                
+                <div id="event-map-test">
+                </div>
 
-								<div>
-									<input type="image" src="resource/test/LetsGO.png" />
-								</div>
+				<div>
+					<input type="image" src="resource/test/LetsGO.png" />
+				</div>
 
             </div>
 
@@ -134,26 +142,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-			var map;
-			function initMap() {
-				map = new google.maps.Map(document.getElementById('event-map'), {
-					center: {lat: -34.397, lng: 150.644},
-					zoom: 8
-				});
-			}
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0m5ZZiPzMXorH4gkSm7gE5JNJWajG10M&callback=initMap">
-    </script>
-
 		
 </body>
 

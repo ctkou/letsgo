@@ -1,10 +1,17 @@
+
+var map;
 function initMap() {
-  // Create a map object and specify the DOM element for display.
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    scrollwheel: false,
-    zoom: 8
-  });
+	map = new google.maps.Map(document.getElementById('event-map'), {
+		center: {lat: 0, lng: 0},
+		zoom: 8
+	});
 }
 
-
+function updateMap(lat,lng) {
+	var latLng = new google.maps.LatLng(lat, lng);
+	var marker = new google.maps.Marker({
+	    position: latLng
+	});
+	map.setCenter(latLng);
+	marker.setMap(map);
+}
