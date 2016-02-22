@@ -114,7 +114,6 @@ var EventGif = React.createClass({
         <p className="lead">
             by <a href="#">{this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].user_name}</a>
         </p>
-        <hr/>
         
         <p className="lead">
           {this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].description}
