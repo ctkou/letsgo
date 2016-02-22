@@ -60,14 +60,7 @@ var data = [
 
 
 var EventGif = React.createClass({
-  getDefaultProps: function() {
-    return {
-        marginBottom: 20,
-        fontSize: 24,
-        fontWeight: 300,
-        lineHeight: 1.4
-    }
-  },
+  
   loadGifsFromServer: function() {
       if (this.state.first_call) {
         var next_gif_index = 0;
@@ -118,16 +111,16 @@ var EventGif = React.createClass({
         <img src={this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].url} alt="" height="500" width="700"></img>
         <hr/>
        
-        <p style={this.props}>
+        <p className="lead">
             by <a href="#">{this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].user_name}</a>
         </p>
         <hr/>
         
-        <p style={this.props}>
+        <p className="lead">
           {this.props.data[this.state.current_event_index].event_gif[this.state.current_gif_index].description}
         </p>
 
-         <p style={this.props}> Posted on {formattedTime}</p>
+         <p><span className="glyphicon glyphicon-time"></span>  Posted on {formattedTime}</p>
       </div>
     );
   }
